@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Font tokens */
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-lobster: "Lobster", cursive;
+  --font-oswald: "Oswald", sans-serif;
+}
+
+/* Make Inter the default */
+body {
+  font-family: var(--font-inter);
+}
+.inter{
+  font-family: var(--font-inter);
+}
+.lobster{
+  font-family: var(--font-lobster);
+}
+.oswald{
+  font-family: var(--font-oswald);
+}
+
+
