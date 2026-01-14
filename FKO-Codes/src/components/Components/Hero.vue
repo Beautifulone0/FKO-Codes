@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      class="container flex flex-col lg:flex-row items-center lg:justify-center gap-10 mx-2 my-2 lg:mx-10 lg:my-20 px-3 py-3 relative"
+      class="container flex flex-col md:flex-row lg:flex-row items-center md:justify-center lg:justify-center gap-10 mx-2 my-2 md:mx-3 lg:mx-10 lg:my-20 px-3 py-3 relative"
     >
       <div>
         <!-- Headline -->
@@ -32,7 +32,7 @@
             duration: 1,
             ease: [0.16, 1, 0.3, 1],
           }"
-          class="font-medium lg:font-light text-[#333333] text-sm lg:text-xl leading-5 lg:leading-7 mb-3 lg:mb-5"
+          class="font-bold lg:font-light text-[#333333] text-xs lg:text-xl leading-5 lg:leading-7 mb-3 lg:mb-5"
         >
           I build modern web interfaces that are easy to use. <br />
           With HTML, CSS, Javascript, React, and Vue, I turn <br />
@@ -50,7 +50,7 @@
             duration: 0.9,
             ease: [0.16, 1, 0.3, 1],
           }"
-          class="flex flex-col gap-3 lg:flex-row lg:gap-4"
+          class="flex flex-col gap-3 md:flex-row lg:flex-row lg:gap-4"
         >
           <button class="bg-[#1C41B0] px-3 py-2 rounded-full text-[#F6F8FE] outline-none">
             View Projects

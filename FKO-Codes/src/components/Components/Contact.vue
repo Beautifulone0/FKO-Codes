@@ -1,15 +1,15 @@
 <template>
   <section>
-    <div class="container mx-auto my-10 lg:my-20">
+    <div class="container mx-auto my-30 lg:my-30">
       <!-- Heading -->
-      <div class="text-center my-10 mx-2 lg:mx-10">
+      <div class="text-center my-10 mx-2 lg:mx-10 slide-in-item">
         <h3 class="inter font-bold text-4xl lg:text-5xl leading-10 lg:leading-15">Contact Me.</h3>
       </div>
 
       <div class="flex flex-col lg:flex-row items-start justify-center mx-3 lg:gap-5">
 
         <!-- Icons Section -->
-        <div class="flex lg:flex-col items-center gap-10 lg:gap-10 mx-auto lg:mx-0">
+        <div class="flex lg:flex-col items-center gap-10 lg:gap-10 mx-auto lg:mx-0 slide-in-item delay-200">
 
           <!-- Email -->
           <div class="flex flex-col items-center gap-2">
@@ -51,14 +51,13 @@
         </div>
 
         <!-- Divider -->
-        <div>
+        <div class="slide-in-item delay-400">
           <img src="/image/divider.svg" alt="divider" class="hidden h-40 lg:block lg:h-auto" />
-
           <img src="/image/smallscreendivider.svg" alt="divider" class="lg:hidden h-30 lg:h-auto" />
         </div>
 
         <!-- Contact Form -->
-        <div class="bg-[#F5F5F5] flex flex-col gap-5 p-5 rounded-lg w-full lg:w-[500px]">
+        <div class="bg-[#F5F5F5] flex flex-col gap-5 p-5 rounded-lg w-full lg:w-[500px] slide-in-item delay-600">
           <form>
             <div class="flex flex-row lg:flex-row gap-5 mb-5">
               <!-- Name -->
@@ -117,4 +116,44 @@
 
 <script setup>
 import { Icon } from '@iconify/vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const items = document.querySelectorAll('.slide-in-item')
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.2 }
+  )
+
+  items.forEach((el) => observer.observe(el))
+})
 </script>
+
+<style scoped>
+.slide-in-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.delay-400 {
+  transition-delay: 0.4s;
+}
+
+.delay-600 {
+  transition-delay: 0.6s;
+}
+</style>

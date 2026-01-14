@@ -2,7 +2,7 @@
   <section>
     <div class="mx-auto my-10 lg:my-30 bg-[#F2F2F2]/80 p-5 lg:p-10">
       <!-- Heading -->
-      <div class="text-center my-10 mx-2 lg:mx-10">
+      <div class="text-center my-10 mx-2 lg:mx-10 project-slide">
         <h1 class="inter font-bold text-4xl lg:text-5xl">
           Featured Projects.
         </h1>
@@ -16,10 +16,9 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center"
       >
         <div
-          v-for="project in projects"
+          v-for="(project, index) in projects"
           :key="project.title"
-          class="group flex flex-col bg-[#FAFAFA] w-full max-w-sm rounded-lg p-2
-                 transition-all duration-300
+          class="project-slide group flex flex-col bg-[#FAFAFA] w-full max-w-sm rounded-lg p-2
                  hover:-translate-y-2 hover:shadow-xl"
         >
           <!-- Image -->
@@ -71,9 +70,9 @@
   </section>
 </template>
 
-
-
 <script setup>
+import { onMounted } from 'vue'
+
 const projects = [
   {
     title: "Nearbis Website",
@@ -120,5 +119,36 @@ const projects = [
       "A homepage clone created to practice responsive layouts and modern UI design.",
     tech: ["HTML", "CSS", "JavaScript"],
   },
-];
+]
+
+onMounted(() => {
+  const cards = document.querySelectorAll('.project-slide')
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('slide-in')
+        else entry.target.classList.remove('slide-in')
+      })
+    },
+    { threshold: 0.2 }
+  )
+
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.2}s` // stagger effect
+    observer.observe(card)
+  })
+})
 </script>
+
+<style scoped>
+.project-slide {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-slide.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>

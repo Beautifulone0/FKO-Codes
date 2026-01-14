@@ -1,22 +1,19 @@
 <template>
   <!-- Navbar wrapper -->
   <nav
-    v-motion
-    :initial="{ opacity: 0, y: -20 }"
-    :enter="{ opacity: 1, y: 0 }"
-    :transition="{ duration: 0.6, ease: 'easeOut' }"
+    ref="navRef"
     :class="[
-      'flex justify-center lg:px-4 z-50 transition-all duration-300',
-      isScrolled ? 'fixed top-0 left-0 right-0 py-4' : 'mt-6',
+      'flex justify-center lg:px-4 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+      isScrolled ? 'fixed top-0 left-0 right-0 py-4' : 'mt-6 opacity-0 translate-y-[-20px] animate-fade-in'
     ]"
   >
     <!-- Rounded navbar container -->
     <div
       :class="[
-        'text-white lg:rounded-full px-5 lg:px-10 flex items-center justify-between w-full max-w-4xl relative transition-all duration-300',
+        'text-white lg:rounded-full px-5 lg:px-10 flex items-center justify-between w-full max-w-4xl relative transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
         isScrolled
           ? 'backdrop-blur-md bg-[#0E2058]/80 shadow-lg border border-white/10 py-4 scale-[0.98]'
-          : 'bg-[#0E2058] py-5',
+          : 'bg-[#0E2058] py-5'
       ]"
     >
       <!-- Logo -->
@@ -113,6 +110,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isOpen = ref(false)
 const isScrolled = ref(false)
+const navRef = ref(null)
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10
@@ -126,3 +124,21 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
+
+<style scoped>
+/* Fade-in on load */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+</style>
