@@ -1,12 +1,28 @@
 <template>
   <!-- Navbar wrapper -->
-  <nav class="flex justify-center mt-6 lg:px-4">
+  <nav
+    v-motion
+    :initial="{ opacity: 0, y: -20 }"
+    :enter="{ opacity: 1, y: 0 }"
+    :transition="{ duration: 0.6, ease: 'easeOut' }"
+    :class="[
+      'flex justify-center lg:px-4 z-50 transition-all duration-300',
+      isScrolled ? 'fixed top-0 left-0 right-0 py-4' : 'mt-6',
+    ]"
+  >
     <!-- Rounded navbar container -->
     <div
-      class="bg-[#0E2058] text-white lg:rounded-full px-5 lg:px-10 py-5 flex items-center justify-between w-full max-w-4xl shadow-lg relative"
+      :class="[
+        'text-white lg:rounded-full px-5 lg:px-10 flex items-center justify-between w-full max-w-4xl relative transition-all duration-300',
+        isScrolled
+          ? 'backdrop-blur-md bg-[#0E2058]/80 shadow-lg border border-white/10 py-4 scale-[0.98]'
+          : 'bg-[#0E2058] py-5',
+      ]"
     >
       <!-- Logo -->
-      <a href="#" class="font-bold text-xl"><img src="/image/logo.svg" alt="logo-img" class="w-20 lg:w-30 h-auto" /></a>
+      <a href="#" class="font-bold text-xl">
+        <img src="/image/logo.svg" alt="logo-img" class="w-20 lg:w-30 h-auto" />
+      </a>
 
       <!-- Desktop Links -->
       <div class="hidden md:flex space-x-4 items-center">
@@ -18,15 +34,17 @@
           href="https://github.com/yourusername"
           target="_blank"
           class="hover:text-blue-400 transition"
-          >GitHub</a
         >
+          GitHub
+        </a>
       </div>
 
       <a
-          href="#work-with-me"
-          class="ml-4 px-4 py-1 bg-blue-600 rounded-full hover:bg-blue-700 transition"
-          >Work With Me</a
-        >
+        href="#work-with-me"
+        class="ml-4 px-4 py-1 bg-blue-600 rounded-full hover:bg-blue-700 transition"
+      >
+        Work With Me
+      </a>
 
       <!-- Mobile Hamburger -->
       <button @click="isOpen = !isOpen" class="md:hidden focus:outline-none">
@@ -45,6 +63,7 @@
             d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
+
         <svg
           v-else
           xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +84,7 @@
       <!-- Mobile Menu -->
       <div
         v-if="isOpen"
-        class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-[#0E2058] rounded-xl shadow-lg py-4 flex flex-col items-center space-y-2 z-50"
+        class="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 backdrop-blur-md bg-[#0E2058]/90 rounded-xl shadow-lg py-4 flex flex-col items-center space-y-2 z-50 border border-white/10"
       >
         <a href="#about" class="hover:text-blue-400 transition">About</a>
         <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
@@ -75,19 +94,35 @@
           href="https://github.com/yourusername"
           target="_blank"
           class="hover:text-blue-400 transition"
-          >GitHub</a
         >
+          GitHub
+        </a>
         <a
           href="#work-with-me"
           class="mt-2 px-4 py-1 bg-blue-600 rounded-full hover:bg-blue-700 transition text-center"
-          >Work With Me</a
         >
+          Work With Me
+        </a>
       </div>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+
 const isOpen = ref(false)
+const isScrolled = ref(false)
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 10
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
