@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="contact">
     <div class="container mx-auto my-30 lg:my-30">
       <!-- Heading -->
       <div class="text-center my-10 mx-2 lg:mx-10 slide-in-item">

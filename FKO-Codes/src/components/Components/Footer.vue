@@ -10,11 +10,11 @@
           <div>
             <h4 class="text-[#CCCCCC] text-md lg:text-lg font-bold lg:font-medium">Quick Links</h4>
             <ul class="text-[#F6F8FE] text-sm lg:text-md lg:font-light mt-2 space-y-2">
-              <li>Home</li>
-              <li>About</li>
-              <li>Featured Projects</li>
-              <li>Skills</li>
-              <li>Contact</li>
+              <li><a href="/" class="hover:text-blue-400 transition">Home</a></li>
+              <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+              <li><a href="#projects" class="hover:text-blue-400 transition">Featured Projects</a></li>
+              <li><a href="#skills" class="hover:text-blue-400 transition">Skills</a></li>
+              <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
             </ul>
           </div>
           <div class="mb-10 lg:mb-0">

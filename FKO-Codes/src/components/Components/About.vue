@@ -1,7 +1,8 @@
 <template>
   <section
+    id="about"
     ref="aboutSection"
-    class="relative w-screen h-[300px] bg-cover bg-center my-20 lg:my-25
+    class="relative w-screen h-[300px] bg-cover bg-center my-20 lg:my-30
            before:absolute before:inset-0 before:bg-black/50 before:content-['']"
     style="background-image: url('/image/image 1.svg')"
   >

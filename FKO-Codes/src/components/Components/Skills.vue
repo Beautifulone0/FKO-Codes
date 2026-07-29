@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="skills">
     <div class="container">
       <div class="text-center my-20 mx-2 lg:mx-10">
         <h1 class="inter font-bold text-4xl lg:text-5xl">Skills and Tools.</h1>

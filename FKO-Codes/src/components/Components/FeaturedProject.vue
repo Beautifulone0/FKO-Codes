@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="projects">
     <div class="mx-auto my-10 lg:my-30 bg-[#F2F2F2]/80 p-5 lg:p-10">
       <!-- Heading -->
       <div class="text-center my-10 mx-2 lg:mx-10 project-slide">
@@ -52,17 +52,24 @@
             </div>
 
             <div class="mt-4 flex gap-4">
-              <button
-                class="px-5 py-3 bg-[#1C41B0] rounded-full text-sm inter font-medium text-white"
-              >
-                Live Demo
-              </button>
-              <button
-                class="px-5 py-3 bg-[#D3DCF8] rounded-full text-sm inter font-medium text-[#07102C]"
-              >
-                GitHub
-              </button>
-            </div>
+  <a
+    :href="project.liveDemo"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="px-5 py-3 bg-[#1C41B0] rounded-full text-sm inter font-medium text-white"
+  >
+    Live Demo
+  </a>
+
+  <a
+    :href="project.github"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="px-5 py-3 bg-[#D3DCF8] rounded-full text-sm inter font-medium text-[#07102C]"
+  >
+    GitHub
+  </a>
+</div>
           </div>
         </div>
       </div>
@@ -82,6 +89,8 @@ const projects = [
     description:
       "A local business discovery platform that connects users with nearby services and brands.",
     tech: ["Next.js", "Tailwind", "JavaScript"],
+    liveDemo: "https://www.nearbis.com/",
+    github: "https://github.com/Local-Guide-LTD/nearbis"
   },
   {
     title: "Eventful Moments",
@@ -91,6 +100,8 @@ const projects = [
     description:
       "Demonstrates form handling, routing, and state management in a full-featured build.",
     tech: ["Nuxt", "Tailwind", "JavaScript"],
+    liveDemo: "https://eventful-moment-app.vercel.app/",
+    github: "https://github.com/Beautifulone0/eventfulMoment-app"
   },
   {
     title: "Vue Jobs",
@@ -100,6 +111,8 @@ const projects = [
     description:
       "A job listing web app built with Vue.js offering a responsive interface.",
     tech: ["Vue", "Tailwind", "JavaScript"],
+    liveDemo: "https://vue-jobs-jade.vercel.app/",
+    github: "https://github.com/Beautifulone0/vue-jobs"
   },
   {
     title: "Aphamed Prints Ltd",
@@ -109,6 +122,8 @@ const projects = [
     description:
       "A service platform for exploring products, requesting quotes, and engaging with the brand.",
     tech: ["Next.js", "Tailwind", "JavaScript"],
+    liveDemo: "https://www.aphamed.com/",
+    github: "https://github.com/Beautifulone0/aphamed-prints-ltd"
   },
   {
     title: "Logic Point",
@@ -118,6 +133,19 @@ const projects = [
     description:
       "A homepage clone created to practice responsive layouts and modern UI design.",
     tech: ["HTML", "CSS", "JavaScript"],
+    liveDemo: "https://logic-point.vercel.app/",
+    github: "https://github.com/Beautifulone0/LogicPoint"
+  },
+  {
+    title: "Thekwane | Digital Solutions",
+    image: "/image/Pimg6.png",
+    role: "Frontend Developer",
+    year: "2026",
+    description:
+      "A portfolio and official web presence for a digital solutions and IT consulting agency.",
+    tech: ["Next.js", "Tailwind", "JavaScript"],
+    liveDemo: "https://thekwane.org/",
+    github: "https://github.com/Beautifulone0/LogicPoint"
   },
 ]
 

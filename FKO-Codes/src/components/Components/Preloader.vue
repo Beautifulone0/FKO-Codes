@@ -38,7 +38,7 @@ export default {
 .logo {
   width: 100px;
   height: 100px;
-  animation: pulse 1.5s infinite; /* pulse effect */
+  animation: pulse 2.5s infinite; /* pulse effect */
 }
 
 /* Pulse keyframes */

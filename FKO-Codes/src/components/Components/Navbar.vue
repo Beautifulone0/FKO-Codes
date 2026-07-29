@@ -3,17 +3,19 @@
   <nav
     ref="navRef"
     :class="[
-      'flex justify-center lg:px-4 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
-      isScrolled ? 'fixed top-0 left-0 right-0 py-4' : 'mt-6 opacity-0 translate-y-[-20px] animate-fade-in'
+      'flex justify-center lg:px-4 lg:py-4 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+      isScrolled
+        ? 'fixed top-0 left-0 right-0 py-4'
+        : 'mt-6 opacity-0 translate-y-[-20px] animate-fade-in',
     ]"
   >
     <!-- Rounded navbar container -->
     <div
       :class="[
-        'text-white lg:rounded-full px-5 lg:px-10 flex items-center justify-between w-full max-w-4xl relative transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'text-white md:rounded-full px-5 lg:px-10 flex items-center justify-between w-full max-w-4xl relative transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
         isScrolled
           ? 'backdrop-blur-md bg-[#0E2058]/80 shadow-lg border border-white/10 py-4 scale-[0.98]'
-          : 'bg-[#0E2058] py-5'
+          : 'bg-[#0E2058] py-5',
       ]"
     >
       <!-- Logo -->
@@ -28,16 +30,17 @@
         <a href="#opento" class="hover:text-blue-400 transition">Opento</a>
         <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/Beautifulone0"
           target="_blank"
           class="hover:text-blue-400 transition"
         >
           GitHub
         </a>
       </div>
-
       <a
-        href="#work-with-me"
+        href="https://wa.me/2349161027545?text=Hi%20Faith!%20I%20came%20across%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you.%20I'd%20love%20to%20discuss%20my%20project%20and%20see%20how%20we%20can%20work%20together."
+        target="_blank"
+        rel="noopener noreferrer"
         class="ml-4 px-4 py-1 bg-blue-600 rounded-full hover:bg-blue-700 transition"
       >
         Work With Me
@@ -139,6 +142,6 @@ onUnmounted(() => {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>

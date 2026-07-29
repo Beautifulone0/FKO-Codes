@@ -52,11 +52,19 @@
           }"
           class="flex flex-col gap-3 md:flex-row lg:flex-row lg:gap-4"
         >
-          <button class="bg-[#1C41B0] px-3 py-2 rounded-full text-[#F6F8FE] outline-none">
-            View Projects
+          <button class="bg-[#1C41B0] hover:bg-[#D3DCF8] hover:text-[#07102C] px-3 py-2 rounded-full text-[#F6F8FE] outline-none">
+            <a href="#projects" class="hover:text-blue-400 transition">View Projects</a>
           </button>
           <button class="bg-[#D3DCF8] px-3 py-2 rounded-full text-[#07102C] outline-none">
-            Work With Me
+            <a
+  href="https://wa.me/2349161027545?text=Hello%20Faith,%20I%20saw%20your%20portfolio%20and%20I’d%20like%20to%20work%20with%20you."
+  target="_blank"
+  rel="noopener noreferrer"
+  class=""
+>
+   Work With Me
+</a>
+           
           </button>
         </div>
 

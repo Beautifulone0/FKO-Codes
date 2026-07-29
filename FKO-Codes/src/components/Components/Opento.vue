@@ -1,12 +1,14 @@
 <template>
-  <section>
+  <section id="opento">
     <div class="container mx-auto my-10 lg:my-20">
       <!-- Heading -->
       <div class="text-center my-10 mx-2 lg:mx-10">
         <h3 class="inter font-bold text-4xl lg:text-5xl leading-10 lg:leading-15 slide-in-item">
           I’m Open To.
         </h3>
-        <p class="inter font-bold lg:font-medium text-xs lg:text-lg leading-4 lg:leading-6 slide-in-item delay-200">
+        <p
+          class="inter font-bold lg:font-medium text-xs lg:text-lg leading-4 lg:leading-6 slide-in-item delay-200"
+        >
           Opportunities, collaborations, and new projects. <br />
           Feel free to reach out for freelance work or just to say hello!
         </p>
@@ -62,14 +64,20 @@
           </div>
         </div>
       </div>
-       
+
       <!-- Buttons -->
       <div class="flex items-center justify-center gap-3 mt-10">
         <button
           type="submit"
           class="px-5 py-3 bg-[#1C41B0] rounded-full text-sm inter font-medium text-white slide-in-item delay-600"
         >
-          Work With Me
+          <a
+            href="https://wa.me/2349161027545?text=Hi%20Faith!%20I%20came%20across%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you.%20I'd%20love%20to%20discuss%20my%20project%20and%20see%20how%20we%20can%20work%20together."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Work With Me
+          </a>
         </button>
         <button
           class="px-5 py-3 bg-[#D3DCF8] rounded-full text-sm inter font-medium text-[#07102C] slide-in-item delay-600"
@@ -92,7 +100,7 @@ onMounted(() => {
         if (entry.isIntersecting) entry.target.classList.add('visible')
       })
     },
-    { threshold: 0.2 }
+    { threshold: 0.2 },
   )
 
   items.forEach((el) => observer.observe(el))
